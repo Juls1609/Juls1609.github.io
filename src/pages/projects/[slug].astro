@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import { projects } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const home = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={`${project.title} | Julieta Schwartz Cerveny`} description={project.summary} image={project.image}>
+  <main>
+    <Header />
+    <article class="project-page shell">
+      <a class="back-link" href={`${home}#projects`}>← Back to projects</a>
+      <p class="eyebrow">{project.eyebrow} · {project.year}</p>
+      <h1>{project.title}</h1>
+      <p class="project-lede">{project.summary}</p>
+
+      {project.image ? (
+        <figure class="bracket-figure">
+          <img src={`${home}${project.image}`} alt={project.imageAlt ?? ''} />
+          {project.imageCaption && <figcaption>{project.imageCaption}</figcaption>}
+        </figure>
+      ) : (
+        <div class="project-page-visual" aria-hidden="true">
+          <div class="pitch-lines"></div>
+          <div class="visual-label">{project.eyebrow.toUpperCase()}</div>
+        </div>
+      )}
+
+      <div class="project-grid">
+        <section>
+          <h2>The challenge</h2>
+          <p>{project.challenge}</p>
+        </section>
+        <section>
+          <h2>Data sources</h2>
+          <p>{project.dataset}</p>
+        </section>
+        <section>
+          <h2>Methodology</h2>
+          <ol>
+            {project.approach.map((step) => <li>{step}</li>)}
+          </ol>
+        </section>
+        <section>
+          <h2>Key outcomes</h2>
+          <ul class="outcome-list">
+            {project.outcomes.map((outcome) => <li>{outcome}</li>)}
+          </ul>
+        </section>
+      </div>
+
+      <section class="tools-section">
+        <h2>Tools and technologies</h2>
+        <ul class="tag-list large-tags">
+          {project.technologies.map((technology) => <li>{technology}</li>)}
+        </ul>
+        <div class="project-actions">
+          {project.demo && <a class="button button-dark" href={project.demo.url} target="_blank" rel="noreferrer">{project.demo.label} ↗</a>}
+          {project.repository && <a class="button button-light" href={project.repository.url} target="_blank" rel="noreferrer">{project.repository.label} ↗</a>}
+        </div>
+      </section>
+    </article>
+  </main>
+</BaseLayout>

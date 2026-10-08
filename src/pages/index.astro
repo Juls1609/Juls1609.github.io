@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+
+const home = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Julieta Schwartz Cerveny | Football Data Scientist" description="Football Data Scientist specialising in sports analytics, statistical modelling, data visualisation, and movement analysis.">
+  <main>
+    <Header />
+    <section class="hero shell" id="about">
+      <div class="hero-copy">
+        <p class="eyebrow">Football data scientist · Madrid, Spain</p>
+        <h1>Turning football data into <em>actionable</em> insight.</h1>
+        <p class="hero-summary">I am Julieta Schwartz Cerveny, a Physics graduate and Data Science & AI specialist. I use statistical modelling, visualisation, and movement analysis to understand performance and support better decisions in football.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#projects">Explore my work</a><a class="button button-light" href={`${home}julieta-schwartz-cerveny-cv.pdf`} target="_blank">Download CV <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-socials" aria-label="Professional profiles"><a href="https://www.linkedin.com/in/julieta-schwartz-cerveny/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/Juls1609?tab=repositories" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      </div>
+      <div class="hero-visual"><div class="hero-number">01</div><img src={`${home}images/julieta-schwartz-cerveny.jpg`} alt="Julieta Schwartz Cerveny presenting Complex Systems and Soccer Analytics" width="768" height="1024" /><div class="image-caption"><span></span> Complex systems<br />& soccer analytics</div></div>
+    </section>
+    <section class="expertise shell"><p class="eyebrow">What I do</p><div class="section-heading"><h2>Science-led analysis for the complexity of the game.</h2><p>I combine a physics mindset with practical data tools to make football performance more measurable, visible, and useful.</p></div><div class="expertise-grid"><article><span>01</span><h3>Sports analytics</h3><p>Performance analysis built around teams, players, events, and context.</p></article><article><span>02</span><h3>Statistical modelling</h3><p>Probabilistic models that turn uncertainty into understandable decisions.</p></article><article><span>03</span><h3>Data visualisation</h3><p>Clear dashboards and reports that move from raw data to action.</p></article><article><span>04</span><h3>Movement analysis</h3><p>Biomechanics and tracking perspectives beyond standard football data.</p></article></div></section>
+    <section class="skills shell" aria-label="Technical skills"><p class="eyebrow">Toolkit</p><ul class="skills-list"><li>Python</li><li>SQL</li><li>R</li><li>Pandas</li><li>Streamlit</li><li>Plotly</li><li>Power BI</li><li>Machine learning</li><li>Statistical analysis</li><li>TensorFlow</li></ul></section>
+    <section class="projects-section" id="projects"><div class="section-intro"><div><p class="eyebrow">Selected work</p><h2>Projects at the intersection of data and football.</h2></div><p>Each project documents the question, data, analytical approach, outcome, and relevant links.</p></div><div class="projects-grid">{projects.slice(0, 6).map((project) => <ProjectCard project={project} />)}</div></section>
+    <section class="contact shell" id="contact"><div><p class="eyebrow">Let’s connect</p><h2>Have a football data question worth exploring?</h2></div><div class="contact-copy"><p>I am open to collaborations, analytical projects, and opportunities to turn sports data into better performance insight.</p><a class="email-link" href="mailto:schwartz.julieta@gmail.com">schwartz.julieta@gmail.com <span>↗</span></a><div class="contact-links"><a href="https://www.linkedin.com/in/julieta-schwartz-cerveny/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/Juls1609?tab=repositories" target="_blank" rel="noreferrer">GitHub</a></div></div></section>
+  </main>
+  <footer class="site-footer shell"><span>© {new Date().getFullYear()} Julieta Schwartz Cerveny</span><span>Football Data Scientist</span></footer>
+</BaseLayout>
