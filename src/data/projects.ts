@@ -52,6 +52,9 @@ export const projects: Project[] = [
     technologies: ['3D skeletal tracking', 'Biomechanics', 'LALIGA data', 'Movement analysis', 'Python', 'Spatial analysis'],
     dataset:
       '3D skeletal tracking data from a single LALIGA match: 32 professional players, 145,615 frames recorded at 25 Hz. Ball-conduction episodes identified from match event data.',
+    image: 'images/head-orientation-football.png',
+    imageAlt: '3D skeletal model of a football player with diagrams showing how vertical (θ) and lateral (φ) head orientation angles are computed relative to the ear midpoint, nose, and shoulder axis.',
+    imageCaption: 'Methodology: 3D skeletal tracking landmarks and the two head orientation angles — vertical tilt (θ) and lateral rotation (φ) — computed for each frame.',
     demo: { label: 'Read the paper (open access)', url: 'https://www.sciencedirect.com/science/article/pii/S3050544526000423' },
   },
   {
