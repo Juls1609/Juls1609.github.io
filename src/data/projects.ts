@@ -29,6 +29,32 @@ export type Project = {
 // Projects appear on the homepage in this order (up to six).
 export const projects: Project[] = [
   {
+    slug: 'head-orientation-football',
+    title: 'Head Orientation in Professional Football',
+    eyebrow: 'Peer-reviewed paper · Movement analysis · 3D tracking',
+    year: '2026',
+    summary:
+      'A proof-of-concept study using 3D skeletal tracking to quantify how professional footballers orient their heads during ball-conduction versus off-ball play — the first continuous, frame-by-frame analysis of its kind in real match data.',
+    challenge:
+      'Coaches have long told players to "keep their heads up", but measuring head orientation continuously across a full match, distinguishing ball-conduction from off-ball movement, and connecting gaze behaviour to tactical context had never been done at this scale. The question was whether 3D skeletal tracking could make it tractable.',
+    approach: [
+      'Collected 3D skeletal tracking data from a single LALIGA match at 25 Hz, covering all 32 players and 145,615 frames across the full 90 minutes.',
+      'Defined ball-conduction episodes from event data and labelled every frame as on-ball or off-ball for each player.',
+      'Computed vertical head orientation (tilt relative to the horizontal plane) and lateral head orientation (rotation relative to the shoulder axis) for each frame.',
+      'Compared distributions between ball-conduction and off-ball contexts across all players, testing whether the pattern held individually and collectively.',
+    ],
+    outcomes: [
+      '31 of 32 players oriented their heads further downward when close to the ball than when playing off the ball — a near-universal pattern at professional level.',
+      'Average vertical head orientation during ball-conduction was −19.6°, compared with approximately −10° off the ball: around 9.5° further downward.',
+      'Lateral head orientation was also more restricted on the ball: an average absolute angle of 18.1° versus approximately 24° off the ball, suggesting reduced scanning of the surrounding space.',
+      'Established a framework for continuous head orientation analysis tied to match events, opening the door to studying which players keep their heads up, who scans before receiving, and whether these behaviours correlate with decision quality.',
+    ],
+    technologies: ['3D skeletal tracking', 'Biomechanics', 'LALIGA data', 'Movement analysis', 'Python', 'Spatial analysis'],
+    dataset:
+      '3D skeletal tracking data from a single LALIGA match: 32 professional players, 145,615 frames recorded at 25 Hz. Ball-conduction episodes identified from match event data.',
+    demo: { label: 'Read the paper (open access)', url: 'https://www.sciencedirect.com/science/article/pii/S3050544526000423' },
+  },
+  {
     slug: 'liga-f-2023-24',
     title: 'Liga F 2023/24 in Data',
     eyebrow: "Event data · xG modelling · Women's football",
